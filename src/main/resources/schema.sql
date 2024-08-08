@@ -1,0 +1,14 @@
+-- schema.sql
+CREATE TABLE IF NOT EXISTS Category (
+    id LONG PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Expense (
+    id LONG PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    amount DOUBLE NOT NULL,
+    date DATE NOT NULL,
+    categoryName VARCHAR(50),
+    categoryId LONG,
+    FOREIGN KEY (categoryId) REFERENCES Category(id)
+);
